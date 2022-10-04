@@ -1,0 +1,14 @@
+﻿@model Project.Models.Prepodavateli;
+
+<h2>Добовление преподователь</h2>
+
+<form asp-action="create" asp-controller="Prepodavatel">
+
+    <p>
+        <label asp-for="PrepName">Имя</label> <br />
+        <input type="text" asp-for="PrepName" />
+    </p>
+    <p>
+        <input type="submit" value="Отправить" />
+    </p>
+</form>

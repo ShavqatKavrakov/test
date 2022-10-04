@@ -1,0 +1,12 @@
+﻿@model Project.Models.Specialnocti;
+<h2>Добавление специальность</h2>
+<form asp-action="create" asp-controller="Specialnoct">
+    <p>
+         <label asp-for="SpecName">Имя</label><br />
+        <input type="text" asp-for="SpecName" />
+    </p>
+    <p>
+        <input type="submit" value="Отправить" />
+    </p>
+</form>
+

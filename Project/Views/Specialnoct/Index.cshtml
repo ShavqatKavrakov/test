@@ -1,0 +1,40 @@
+﻿@model List<Project.Models.Specialnocti>
+
+<h2>Список cпециальность</h2>
+<p>
+ <a asp-action="Create" asp-controller="Specialnoct" >Добавить специальность</a>
+ </p>
+<form >
+    <p>
+        Поиск по имени: <input type="text" name="searchByName" />
+        <input type="submit" value="Искать"/>
+    </p>
+
+</form>
+
+<table class="table">
+  
+     <tr>
+         <th>
+             @Html.ActionLink("Номер","Index",new {sortOrder=ViewBag.IdSortParam, searchByName = ViewBag.SearchByName})
+         </th>
+         <th>
+             @Html.ActionLink("Название специальность","Index",new {sortOrder=ViewBag.NameSortParam,searchByName = ViewBag.SearchByName})
+         </th>
+         <th></th><th></th></tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.SpecName</td>
+            <td >
+                <a asp-action="Edit" asp-controller="Specialnoct" asp-route-id="@item.Id" class="btn btn-primary" >Изменить</a>
+            </td>
+            <td>
+                <form asp-controller="Specialnoct" asp-action="Delete" method="post"  asp-route-id="@item.Id">
+                    <input type="submit" value="Удалить" class="btn btn-danger"  />
+                </form>
+            </td>
+        </tr>
+    }
+</table>

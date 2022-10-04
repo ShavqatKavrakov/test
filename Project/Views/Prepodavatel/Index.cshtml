@@ -1,0 +1,40 @@
+﻿@model List<Project.Models.Prepodavateli>
+
+<h2>Список преподаватель</h2>
+<p>
+<a asp-action="create" asp-controller="Prepodavatel">Добовить преподаватель</a>
+</p>
+
+<form>
+    <p>
+    Поиск по имени: <input type="text" name="searchByName" />
+                    <input type="submit" value="Искать">
+   </p>
+</form>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Номер","Index",new {sortOrder=ViewBag.IdSortParam,searchByName=ViewBag.SearchByName})
+        </th>
+        <th>
+            @Html.ActionLink("ФИО  Преподаватель","Index",new {sortOrder=ViewBag.NameSortParam,searchByName=ViewBag.SearchByName})
+        </th>
+        <th></th><th></th></tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.PrepName</td>
+            <td>
+                <a asp-action="Edit" asp-controller="Prepodavatel" asp-route-id="@item.Id" class="btn btn-primary">Изменить</a>
+            </td>
+            <td>
+                <form asp-action="Delete" asp-controller="Prepodavatel" asp-route-id="@item.Id" method="post">
+                    <input type="submit" class="btn btn-danger" value="Удалить">
+                </form>
+            </td>
+        </tr>
+    }
+
+</table>

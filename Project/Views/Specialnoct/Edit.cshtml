@@ -1,0 +1,12 @@
+﻿@model Project.Models.Specialnocti
+ 
+<h2>Редактирование специальность</h2>
+<form asp-action="edit" asp-controller="specialnoct" asp-route-id="@Model.Id">
+    <p>
+        <label asp-for="SpecName">Имя</label><br />
+        <input type="text" asp-for="SpecName" />
+    </p>
+    <p>
+        <input type="submit" value="Сохранить" />
+    </p>
+</form>
